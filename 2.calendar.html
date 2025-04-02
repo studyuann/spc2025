@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>photo calendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>  photo calendar  </h1>
+    <h2>  2025년 4월  </h2>
+    <img src="ninave.jpg" alt="니나부">
+
+<br>
+
+    <table>
+        <thead>
+            <tr>
+                <th width="14%">sun</th>
+                <th width="14%">mon</th>
+                <th width="14%">tue</th>
+                <th width="14%">wed</th>
+                <th width="14%">thu</th>
+                <th width="14%">sat</th>
+                <th width="14%">sun</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    2
+                </td>
+                <td>
+                    3
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    5
+                </td>
+                <td>
+                    6
+                </td>
+                <td>
+                    7
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    8
+                </td>
+                <td>
+                    9
+                </td>
+                <td>
+                    10
+                </td>
+                <td>
+                    11
+                </td>
+                <td>
+                    12
+                </td>
+                <td>
+                    13
+                </td>
+                <td>
+                    14
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+<!-- 
+    <script>
+        const days = 31; // 날짜 개수
+        const tbody = document.querySelector("#calendarTable tbody");
+        let row;
+        
+        for (let i = 1; i <= days; i++) {
+            if ((i - 1) % 7 === 0) {
+                row = document.createElement("tr"); // 새로운 행 생성
+                tbody.appendChild(row);
+            }
+            let cell = document.createElement("td");
+            cell.textContent = i;
+            row.appendChild(cell);
+        }
+    </script>
+    <br>
+    <!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동적 테이블 생성</title>
+</head>
+<body>
+    <table border="1" id="calendarTable">
+        <thead>
+            <tr>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+                <th>토</th>
+                <th>일</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table> -->
+
+    <table border="1" id="calendarTable">
+        <thead>
+            <tr>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+                <th>토</th>
+                <th>일</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        const days = 31; // 날짜 개수
+        const startDay = 2; // 1일이 수요일(0: 월, 1: 화, 2: 수...)
+        const tbody = document.querySelector("#calendarTable tbody");
+        let row = document.createElement("tr");
+        tbody.appendChild(row);
+
+        // 빈 셀 채우기 (월, 화 비우기)
+        for (let i = 0; i < startDay; i++) {
+            let emptyCell = document.createElement("td");
+            row.appendChild(emptyCell);
+        }
+
+        for (let i = 1; i <= days; i++) {
+            if ((i + startDay - 1) % 7 === 0) {
+                row = document.createElement("tr"); // 새로운 행 생성
+                tbody.appendChild(row);
+            }
+            let cell = document.createElement("td");
+            cell.textContent = i;
+            row.appendChild(cell);
+        }
+    </script>
+</body>
+</html>
+</body>
+</html>
