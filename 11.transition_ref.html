@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+     .square {
+        width:100px;
+        height: 100px;
+        background-color: red;
+        transition-property: width, height;
+        transition-duration: 1.0s;
+        transition-timing-function: ease-out;
+    }
+    .square:hover{
+        width: 200px;
+        height: 200px;
+    }
+    .button {
+        color: black;
+        font-weight: 800;
+        transition-property: color;
+        transition-duration: 2.0s;
+        transition-timing-function: ease;
+    }
+    }
+    .button:hover {
+        color: red;
+        font-weight: 800;
+        transition-property: color;
+        transition-duration: 2.0s;
+        transition-timing-function: ease;
+    }
+   </style>
+</head>
+<body>
+    <div>
+        <div class="square"></div>
+        <button class="button">hover me</button>
+    </div>
+</body>
+</html>
