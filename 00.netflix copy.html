@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* 🔹 헤더 배경 이미지 */
+        .header {
+            position: relative;
+            width: 100%;
+            height: 800px;
+            background: url('back_img.jpg') center/cover no-repeat;
+        }
+
+        /* 🔹 배경 어두운 효과 */
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* 어두운 필터 효과 */
+        }
+
+        /* 🔹 상단 네비게이션 바 */
+        .nav {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+
+        /* 🔹 넷플릭스 로고 */
+        .netfl {
+            width: 150px;
+            height: 50px;
+            background: url('Netflix_Logo_PMS.png') center/contain no-repeat;
+        }
+
+        /* 🔹 네비게이션 버튼 */
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: white;
+            color: black;
+        }
+
+        /* 🔹 중앙 콘텐츠 */
+        .mid {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+            z-index: 10;
+        }
+
+        .mid h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .mid p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* 🔹 이메일 입력 폼 */
+        .email-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .email-input {
+            padding: 15px;
+            width: 300px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .red-button {
+            padding: 15px 20px;
+            font-size: 1rem;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .red-button:hover {
+            background: darkred;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="nav">
+            <div class="netfl"></div>
+            <div class="nav-buttons">
+                <button class="btn">한국어</button>
+                <button class="red-button">로그인</button>
+            </div>
+        </div>
+
+        <div class="mid">
+            <h1>영화, 시리즈 등을 무제한으로</h1>
+            <p>5,500원으로 시작하세요. 멤버십은 언제든지 해지 가능합니다.</p>
+            <p>시청할 준비가 되셨나요? 멤버십을 등록하거나 재시작하려면 이메일 주소를 입력하세요.</p>
+            
+            <div class="email-container">
+                <input type="email" class="email-input" placeholder="이메일 주소">
+                <button class="red-button">시작하기</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+         body {
+            background-color: black; /* 배경을 검은색으로 설정 */
+            color: white; /* 글씨색을 흰색으로 변경 (가독성 향상) */
+        }
+
+        .header{
+            background-image: url(back_img.jpg)   ;  
+            width: 100%;
+            height: 800px;    
+            opacity: 20%;
+            position: absolute;
+        }
+        .netfl{
+            width: 300px;
+            height: 120px;
+            background-image: url(Netflix_Logo_PMS.png)   ;      
+            background-size: 100%;
+            float: left;
+    
+        }
+        .lang{
+            width: 100px;
+            height: 120px; 
+            background-size: 100%;
+            float: right;
+            
+        }
+        .login{
+            width: 100px;
+            height: 120px;
+            background-size: 100%;
+            float: right;
+            
+        }
+
+
+        .mid{
+            position: relative;
+            top: 300px;
+            width: 1000px;
+            height: 1200px;
+            background-size: 100%;    
+            color: #fff;        
+        }
+
+        .mid {
+            font-size: larger;
+        }
+
+        .e_mail{
+            float: right;
+            display: flex;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+        <div class=" netfl"></div>
+        <div class=" lang">한국어</div>
+        <div class=" login">로그인</div>
+
+    <div class="mid">
+        <div class="title"> <p>영화, 시리즈 등을 무제한으로</p></div>
+        <div class="sub_title">5,500원으로 시작하세요. 멤버십은 언제든지 해지 가능합니다.</div>
+        <div class="sub_title">시청할 준비가 되셨나요? 멤버십을 등록하거나 재시작하려면 이메일 주소를 입력하세요.</div>
+        <div class="e_mail">
+            <input class="mail_input">
+            <div class="mail_box">시작하기</div>
+        </div>
+
+    </div>
+</body>
+</html>
