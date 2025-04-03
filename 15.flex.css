@@ -1,3 +1,4 @@
+<style>
 header, footer {
     background-color: green;
     text-align: center;
@@ -41,3 +42,4 @@ main {
         flex-direction: row;
     }
 }
+</style>

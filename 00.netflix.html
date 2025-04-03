@@ -6,37 +6,35 @@
     <title>Netflix Clone</title>
 
     <style>
-        * {
+        /*기본 세팅*/
+        * {  
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
+        body {  
             background-color: black;
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
         }
-
-        .header {
+        .header { /*뒷배경 사진*/
             position: relative;
             width: 100%;
             height: 800px;
-            background: url('back_img.jpg') center/cover no-repeat;
+            background: url('back_img.jpg') center/contain no-repeat;
         }
-        .header::before {
+        .header::before {/* 뒷배경 사진 흐리게 하는 장치 투명도 0.7 (opacity 사용 XXX) */
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
+            left: 0px;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6); 
+            background: rgba(0, 0, 0, 0.7); 
         }
-
-        .nav {
-            position: absolute;
+        .nav { /*네비 상단바*/
+            position: relative;
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
@@ -46,46 +44,40 @@
             align-items: center;
             z-index: 10;
         }
-
-        .netfl {
+        .netfl { /*넷플 로고*/
             width: 150px;
             height: 50px;
             background: url('Netflix_Logo_PMS.png') center/contain no-repeat;
         }
-
-        .nav-buttons {
+        .nav-buttons { /*상단네비 버튼 크기 자리 조정*/
             display: flex;
             gap: 15px;
         }
-
-        .mid {
+        .mid {          /*중앙 시작하기부분*/
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            width: 90%;
+            width: 100%;
             max-width: 800px;
-            z-index: 10;
         }
-
         .mid h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: bold;
         }
-
         .mid p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-top: 10px;
+            
         }
-
         .email-container {
-            margin-top: 20px;
+            margin-top: 30px;
             display: flex;
             justify-content: center;
             gap: 10px;
+            
         }
-
         .email-input {
             padding: 15px;
             width: 300px;
@@ -95,11 +87,9 @@
             border: 1px solid #555; 
             border-radius: 5px;
         }
-
         .email-input::placeholder {
-            color: #bbb; 
+            color: #ccc; 
         }
-
         .red-button {
             padding: 15px 20px;
             font-size: 1rem;
@@ -108,110 +98,97 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            /* font-weight: bold; */
+            font-size: larger;
         }
-
         .red-button:hover {
-            background: darkred;
+            background: rgb(170, 2, 2);
         }
-
         .dropdown {
             padding: 8px;
             font-size: 1rem;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(250, 230, 230, 0.349);
             color: white;
             border: 1px solid white;
             border-radius: 5px;
             cursor: pointer;
         }
-
         .dropdown:hover {
             background: white;
             color: black;
         }
-
- 
         .more_plan {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #1a1132;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    margin: 20px auto;
-}
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #1a1132;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            margin: 20px auto;
+        }
+        .more_plan img {
+            width: 50px; 
+            margin-right: 20px;
+        }
 
-.more_plan img {
-    width: 50px; 
-    margin-right: 20px;
-}
+        .more_plan .text-content {
+            flex-grow: 1;
+            text-align: center;
+        }
 
-.more_plan .text-content {
-    flex-grow: 1;
-    text-align: center;
-}
+        .more_plan h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
 
-.more_plan h1 {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
+        .more_plan p {
+            font-size: 1rem;
+            margin-top: 5px;
+        }
 
-.more_plan p {
-    font-size: 1rem;
-    margin-top: 5px;
-}
-
-.more_plan .btn {
-    background: #666;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-}
-
+        .more_plan .btn {
+            background: #666;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
         .btn:hover {
             background: white;
             color: black;
         }
-
         .hot_issue {
             text-align: left;
             margin-left: 3%;
             margin-right: 3%;
             margin-top: 50px;
         }
-
         .hot_issue h3 {
             font-size: 1.8rem;
             margin-bottom: 20px;
         }
-
         .flex-container {
             display: flex;
             overflow-x: auto;
             gap: 15px;
             padding: 20px 0;
         }
-
-
         .box img {
             width: 90%;
             border-radius: 8px;
         }
-
-        
         .box img:hover {
         width: 100%;
     }
-
         .box .number {
             position: absolute;
             bottom: 10px;
             left: 10px;
             font-size: 2rem;
             font-weight: bold;
-            background: rgba(0, 0, 0, 0.5);
+            background-color: 001;
             padding: 5px;
             border-radius: 5px;
         }
@@ -234,10 +211,11 @@
         <div class="mid">
             <h1>영화, 시리즈 등을 무제한으로</h1>
             <p>5,500원으로 시작하세요. 멤버십은 언제든지 해지 가능합니다.</p>
+            <p>시청할 준비가 되셨나요? 멤버십을 등록하거나 재시작하려면 이메일 주소를 입력하세요.</p>
             
             <div class="email-container">
                 <input type="email" class="email-input" placeholder="이메일 주소">
-                <button class="red-button">시작하기</button>
+                <button class="red-button">시작하기 ></button>
             </div>
         </div>
     </div>
