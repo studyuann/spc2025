@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>색상변경(토글)</h1>
+    <button onclick="changeColor()"> 배경 색상 변경 </button>
+    <p id="toggle_text">  이 텍스트의 색상을 변경해 보세요</p>
+    <script>
+
+
+function changeColor() {
+    var toggle_text = document.getElementById("toggle_text");
+    console.log(toggle_text);
+
+    // 현재 글자 색이 red라면 blue로 바꾸고, 아니면 red로 변경
+    if (toggle_text.style.color === 'red') {
+        toggle_text.style.color = 'blue';
+    } else {
+        toggle_text.style.color = 'red';
+    }
+}
+    </script>
+</body>
+</html>

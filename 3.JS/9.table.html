@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<table border="solid" >
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+</table>
+    <button onclick="changeAllColor()"> 전체 색상 변경 </button>
+    <button onclick="changeColorX2n()"> 짝수 색상 변경 </button>
+    <button onclick="changeColorX2n_1()"> 홀수 색상 변경 </button>
+
+
+    <script>
+        function changeAllColor(){
+            var cells = document.getElementsByTagName('td');
+            console.log(cells);
+            for(var i=0;i<=cells.length; i++){
+                cells[i].style.backgroundColor = "blue";
+            }
+        }        
+        function changeAllColor(){
+            var cells = document.getElementsByTagName('td');
+            console.log(cells);
+            for(var i=0;i<=cells.length; i++){
+                cells[i].style.backgroundColor = "blue";
+            }
+        }        
+
+    </script>
+</body>
+</html>
