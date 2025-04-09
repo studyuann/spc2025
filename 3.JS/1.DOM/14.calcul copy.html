@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>계산기</title>
+  <style>
+    .calculator {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+      max-width: 300px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .calculator input {
+      grid-column: span 4;
+      padding: 10px;
+      font-size: 18px;
+    }
+
+    .calculator button {
+      padding: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="result" readonly>
+    <button onclick="clickSymbol('+')">+</button>
+    <button onclick="clickSymbol('-')">-</button>
+    <button onclick="clickSymbol('*')">*</button>
+    <button onclick="clickSymbol('/')">/</button>
+    
+    <button onclick="clickNumber('7')">7</button>
+    <button onclick="clickNumber('8')">8</button>
+    <button onclick="clickNumber('9')">9</button>
+    <button onclick="calculateResult()">=</button>
+
+    <button onclick="clickNumber('4')">4</button>
+    <button onclick="clickNumber('5')">5</button>
+    <button onclick="clickNumber('6')">6</button>
+    <button onclick="clearResult()">C</button>
+
+    <button onclick="clickNumber('1')">1</button>
+    <button onclick="clickNumber('2')">2</button>
+    <button onclick="clickNumber('3')">3</button>
+    <button onclick="clickNumber('0')">0</button>
+  </div>
+  <script>
+    // 숫자 버튼을 누르면 기존 값 뒤에 새 값 추가
+    function clickNumber(value) {
+      const inputBox = document.getElementById("result");
+      inputBox.value += value;
+    }
+
+    // 심볼 버튼을 누를 때: 입력 값이 비어있지 않고, 마지막 문자가 숫자일 때만 추가
+    function clickSymbol(symbol) {
+      const inputBox = document.getElementById("result");
+      const currentValue = inputBox.value;
+      // 값이 없으면 심볼 추가 안함.
+      if (currentValue === "") return;
+
+      // 마지막 문자가 숫자인지 확인 (정규표현식 사용)
+      const lastChar = currentValue[currentValue.length - 1];
+      if (!/\d/.test(lastChar)) return; // 이미 연산 기호가 있으면 추가 안함
+
+      inputBox.value += symbol;
+    }
+
+    // C 버튼: 입력 값 클리어
+    function clearResult() {
+      document.getElementById("result").value = "";
+    }
+
+    // = 버튼: 실제 연산 수행 (eval() 사용 - 간단한 계산기 예제용)
+    function calculateResult() {
+      const inputBox = document.getElementById("result");
+      try {
+        // eval()는 보안상 위험할 수 있으니, 실무에서는 다른 방법을 고려하세요.
+        const evalResult = eval(inputBox.value);
+        inputBox.value = evalResult;
+      } catch (error) {
+        inputBox.value = "Error";
+      }
+    }
+  </script>
+</body>
+</html>

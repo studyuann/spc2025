@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas Example</title>
+  <style>
+    canvas {
+      border: 1px dashed black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="400" height="300"></canvas>
+
+  <script>
+    const canvas = document.getElementById('myCanvas');
+    const context = canvas.getContext('2d');
+
+    context.beginPath();
+    context.moveTo(300,100);
+
+    const startAngle = 0.1 * Math.PI;
+    const endAngle = 1.9 * Math.PI;
+    context.arc(300,100,30, startAngle, endAngle);
+    context.fillStyle = 'yellow';
+    context.fill();
+    context.closepath();
+
+
+
+</script>
+</body>
+</html>

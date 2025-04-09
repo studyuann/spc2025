@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>스탑워치</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding-top: 50px;
+    }
+
+    #display {
+      font-size: 48px;
+      margin: 20px 0;
+      /* font-weight: bold; */
+    }
+
+    button {
+      font-size: 18px;
+      margin: 5px;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>스톱워치</h1>
+  <div id="display">00:00.000</div>
+  <button id="startButton">시작</button>
+  <button id="pauseButton">일시정지</button>
+  <button id="resetButton">리셋</button>
+
+
+  <script>
+    const display = document.getElementById('display');
+    const startButton = document.getElementById('startButton');
+    const pauseButton = document.getElementById('pauseButton');
+    const resetButton = document.getElementById('resetButton');
+
+    let timePassed = 0;
+    let interval = null;
+    let isPaused = false;
+
+    function formatTime(ms) {
+      const totalSeconds = Math.floor(ms / 1000);
+      const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+      const seconds = String(totalSeconds % 60).padStart(2, '0');
+      const milliseconds = String(ms % 1000).padStart(3, '0');
+      return `${minutes}:${seconds}.${milliseconds}`;
+    }
+
+    function updateDisplay() {
+      display.textContent = formatTime(timePassed);
+    }
+
+    function startTimer() {
+      if (interval !== null) return;
+
+      interval = setInterval(() => {
+        if (!isPaused) {
+          timePassed += 10;
+          updateDisplay();
+        }
+      }, 10);
+    }
+
+    function pauseTimer() {
+      isPaused = !isPaused;
+      pauseButton.textContent = isPaused ? "계속" : "일시정지";
+    }
+
+    function resetTimer() {
+      clearInterval(interval);
+      interval = null;
+      timePassed = 0;
+      isPaused = false;
+      pauseButton.textContent = "일시정지";
+      updateDisplay();
+    }
+
+    startButton.addEventListener("click", startTimer);
+    pauseButton.addEventListener("click", pauseTimer);
+    resetButton.addEventListener("click", resetTimer);
+
+    updateDisplay();
+  </script>
+</body>
+</html>

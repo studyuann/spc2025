@@ -3,67 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>계산기</title>
     <style>
-        .cal{
+        .calculator {
             display: grid;
-            grid-template-columns: repeat(4, lfr);
+            grid-template-columns: repeat(4, 1fr);
             grid-gap: 10px;
             max-width: 300px;
+            margin: 0 auto;
             text-align: center;
-            margin: auto;
-
         }
-        .cal input {
+
+        .calculator input {
             grid-column: span 4;
             padding: 10px;
             font-size: 18px;
         }
-        .cal button {
+
+        .calculator button {
             padding: 10px;
             font-size: 18px;
         }
     </style>
-
 </head>
 <body>
-    <div class="cal">
+    <div class="calculator">
         <input type="text" id="result" readonly>
-        <button>+</button>
-        <button>-</button>
-        <button>*</button>
-        <button>/</button>
-
+        <button onclick="clickSymbol(this.innerText)">+</button>
+        <button onclick="clickSymbol(this.innerText)">-</button>
+        <button onclick="clickSymbol(this.innerText)">*</button>
+        <button onclick="clickSymbol(this.innerText)">/</button>
+        
         <button onclick="clickNumber(this.innerText)">7</button>
         <button onclick="clickNumber(this.innerText)">8</button>
         <button onclick="clickNumber(this.innerText)">9</button>
-        <button onclick="clickSymbol(this.innerText)">=</button>
+        <button>=</button>
 
         <button onclick="clickNumber(this.innerText)">4</button>
         <button onclick="clickNumber(this.innerText)">5</button>
         <button onclick="clickNumber(this.innerText)">6</button>
-        <button onclick="clickSymbol(this.innerText)">c</button>
+        <button>C</button>
 
         <button onclick="clickNumber(this.innerText)">1</button>
         <button onclick="clickNumber(this.innerText)">2</button>
         <button onclick="clickNumber(this.innerText)">3</button>
-        <button onclick="clickNumber(this.innerText)">0</button>
-    </div>
-    
-    <script>
-    // const userInput = document.getElementById('userInput');
-    // const userInput = document.get
+        <button onclick="clickNumber(this.innerText)">←</button>
 
+        <button onclick="clickNumber(this.innerText)">0</button>
+        <button onclick="clickNumber(this.innerText)">.</button>
+    </div>
+    <script>
+        // 미션1: 7번 입력하기
+        // 미션2: 8번도 입력하기
+        // 미션3: 새로운 숫자로 쓸게 아니고, 원래 있던 숫자 뒤에 이어서 더해서 붙이기....
+        const inputBox = document.getElementById("result");
         function clickNumber(value) {
-        console.log("버튼 클릭")
-        const input_num = document.getElementById('result');
-        input_num.value = input_num.value + value;
-//        input_num.value = input_num.value + value;
-        function clickNumber(value) {
-        console.log("버튼 클릭")
-        const input_num = document.getElementById('result');
-        input_num.value = input_num.value + value;
-    }
+            inputBox.value = inputBox.value + value;
+        }
+        function clickSymbol(value) {
+            // 숙제1. 심볼은 하나만 입력되어야함. (나의 이전 문자를 보고, 이전에 숫자가 있을때만 심볼 누르기)
+            inputBox.value = inputBox.value + value;
+
+        }
+        function clearResult() {
+            inputBox.value = "";
+        }
+        // 숙제2. 연산을 실제로 해야함 (=을 클릭하면 그 연산 수행하기)
+        function clickTotal(value) {
+            // 숙제1. 심볼은 하나만 입력되어야함. (나의 이전 문자를 보고, 이전에 숫자가 있을때만 심볼 누르기)
+            inputBox.value = inputBox.value + value;
+        }
+        
     </script>
 </body>
 </html>

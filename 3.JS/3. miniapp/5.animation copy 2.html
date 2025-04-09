@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diagonal Ball</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="960" height="800"></canvas>
+
+  <script>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const ballSize = 50;
+    let x = 0;
+    let y = 0;
+    let speedX = 7.3175;
+    let speedY = 5;
+
+    function drawBall() {
+      ctx.beginPath();
+      ctx.arc(x + ballSize, y + ballSize, ballSize, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(0, 255, 0, 1)';
+      ctx.fill();
+    }
+
+    function updatePosition() {
+      x += speedX;
+      y += speedY;
+
+      // X 방향 경계 체크
+      if (x <= 0 || x >= canvas.width - ballSize * 2) {
+        speedX *= -1;
+      }
+
+      // Y 방향 경계 체크
+      if (y <= 0 || y >= canvas.height - ballSize * 2) {
+        speedY *= -1;
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawBall();
+      updatePosition();
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+  </script>
+</body>
+</html>
