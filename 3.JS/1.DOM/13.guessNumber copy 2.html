@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>이진 탐색 숫자 맞추기</title>
+</head>
+<body>
+  <h1>숫자 맞추기 게임</h1>
+  <h2>1~100 사이 숫자를 맞춰보세요!</h2>
+
+  <input type="number" id="guessNumber" placeholder="숫자 입력" min="1" max="100">
+  <button id="guessButton">Guess</button>
+  <p id="result">결과가 여기에 표시됩니다.</p>
+  <p id="hint">💡 다음 추천 숫자: <span id="nextGuess">50</span></p>
+
+  <script>
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    console.log("정답 (개발자용):", randomNumber);
+
+    const guessInput = document.getElementById("guessNumber");
+    const result = document.getElementById("result");
+    const guessButton = document.getElementById("guessButton");
+    const nextGuessSpan = document.getElementById("nextGuess");
+
+    // 이진 탐색용 범위
+    let min = 1;
+    let max = 100;
+
+    guessButton.addEventListener("click", () => {
+      const userGuess = Number(guessInput.value);
+
+      if (!userGuess || userGuess < min || userGuess > max) {
+        result.textContent = `⚠️ ${min} ~ ${max} 사이 숫자를 입력하세요.`;
+        return;
+      }
+
+      if (userGuess < randomNumber) {
+        result.textContent = "🔼 너무 작아요!";
+        min = userGuess + 1;
+      } else if (userGuess > randomNumber) {
+        result.textContent = "🔽 너무 커요!";
+        max = userGuess - 1;
+      } else {
+        result.textContent = "🎉 정답입니다!";
+        nextGuessSpan.textContent = "-";
+        guessInput.disabled = true;
+        guessButton.disabled = true;
+        return;
+      }
+
+      // 이진 탐색 다음 추천 숫자
+      const nextGuess = Math.floor((min + max) / 2);
+      nextGuessSpan.textContent = nextGuess;
+    });
+
+    // 엔터 키로도 실행 가능
+    guessInput.addEventListener('keyup', function(e) {
+      if (e.key === 'Enter') guessButton.click();
+    });
+  </script>
+</body>
+</html>
