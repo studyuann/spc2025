@@ -1,0 +1,281 @@
+###1일차
+
+
+왜 나를 뽑아야하는가~~~~~~
+인문학 전공이 +가 될까
+
+인공지능 클라우드 데이터분석... 등등등 
+
+22시 퇴근 ..............................................
+압축에 압축 10주...
+플젝 3~4인
+
+
+
+gpt 유의사항
+
+하이텔 천리안 나우누리 매가패스 두루넷 
+
+crm vga
+ 
+http://info.cern.ch/
+
+
+단어장을 만들어라..!
+단어장을 만들어라..!
+단어장을 만들어라..!
+
+
+공부윌 위한 노력 은 회사의 것이 아니라 내 이득
+
+네이버 wbs?? wds?? 간트차트?
+
+
+소마 bob?
+클라우드보안
+
+한이음??과기부 지원
+
+원리와 개념
+원문
+석사 야간대학
+
+좋은 습관
+
+add commit push
+
+git commit -m "msg" 
+
+git svn cvs
+
+------------------------------------------------------------------------
+###2일차
+
+git 지우는 기능은 없다고 이해
+1기가 생성하고 지웠어도 남은용량이 0이어도 1기가 형상관리차원에서 남게된다
+  
+  fuckc
+첫인상 중요
+
+https://github.com/junlae223
+
+
+git checkout [branch명]
+
+git branch :list 보기
+
+
+
+
+
+
+
+
+"나혼자 1인2역하기... (CONFLICT해결)
+1. mine1 클론 / mine2 클론
+2. mine1 에서 README.md 에 글추가
+3. mine2 에서 README.md 에 글추가
+4. mine1 에서 commit (성공)
+5. mine2 에서 commit (성공)
+6. mine1 에서 push (성공)
+7. mine2 에서 push (실패)
+8. mine2 에서 오류 메세지 보고 git pull
+9. 다시 오류 메세지(CONFLICT) 보고 해결시도
+10. mine2가 README.md 다시 열고 해결
+11. mine2 가 다시 add / commit / push
+12. mine1 에서 다시 pull 해서 변경 가져오기
+--
+"	"나혼자 1인2역하기... (자동MERGE확인)
+1. mine1 클론 / mine2 클론
+2. mine1 에서 README.md 에 글추가
+3. mine2 에서 README.md 에 글추가 (중복안되는곳에)
+4. mine1 에서 commit (성공)
+5. mine2 에서 commit (성공)
+6. mine2 에서 push (성공)  <-- 순서가 바뀜
+7. mine1 에서 push (실패)
+8. mine1 에서 오류 메세지 보고 git pull
+9. 자동 머지(merge) 가 성공한것 확인
+10. mine1 에서 README.md를 보고 잘~ merge되었는지 확인
+11. mine1 에서 push
+11. mine2 가 다시 pull 할것이 생겼음...
+----
+
+"	"나혼자 1인2역하기... (두번 CONFLICT해결)
+1. mine1 클론 / mine2 클론
+2. mine1 에서 README.md 에 글추가
+3. mine2 에서 README.md 에 글추가
+4. mine1 에서 commit (성공)
+5. mine2 에서 commit (성공)
+6. mine1 에서 push (성공)
+7. mine2 에서 push (실패)
+8. mine2 에서 오류 메세지 보고 git pull
+9. 다시 오류 메세지(CONFLICT) 보고 해결시도
+10. mine2가 README.md 다시 열고 해결
+11. mine2가 git add/commit 까지 하고 push는 못한 상태
+12. 이때 mine1이 README.md 또 수정
+13 mine1은 add/commit/push 까지 먼저 완료
+14. mine2 가 이때 push 시도 (또 실패)
+15. git pull 다시 해야하고 또 CONFLICT발생
+16. mine2가 다시 수정할 내용 확인하고 병합후
+17. git add/commit/push 까지 완료 (휴~)
+
+"	
+
+
+
+
+       Status-Code    = "200"   ; OK
+                      | "201"   ; Created
+                      | "202"   ; Accepted
+                      | "204"   ; No Content
+                      | "301"   ; Moved Permanently
+                      | "302"   ; Moved Temporarily
+                      | "304"   ; Not Modified
+                      | "400"   ; Bad Request
+                      | "401"   ; Unauthorized
+                      | "403"   ; Forbidden
+                      | "404"   ; Not Found
+                      | "500"   ; Internal Server Error
+                      | "501"   ; Not Implemented
+                      | "502"   ; Bad Gateway
+                      | "503"   ; Service Unavailable
+                      | extension-code
+					  
+					  
+					  
+----------------
+pki
+ssl
+http/ https
+
+후니의 쉽게쓴 네트워킹
+
+font awesome 
+cdnjs.cloudflare
+
+cdnjs
+
+-----------------
+4일차
+
+js의 특징
+
+js는 변수에 함수 할당이 가능
+변수에 인자를 넣을 수 있다
+변수가 함수처럼 동작
+
+브라우저에서 동작
+ 
+arrow function
+
+객체?
+여러가지 값을 모아둔 것이여러 속성을 담을 수 잇음
+객체 내부변수에 문자열 담기
+객체 내부변수에 상수 담기
+
+fruits.forEach(function(number){
+console.log(number);
+});
+
+fruits.forEach((number) =>{
+console.log(number);
+});
+
+fruits.forEach((number) => console.log(number));
+
+document.get~~~ <중요
+== 값 비교
+=== 값+타입 비교(detail)
+버그 발생소지 많음비동기 호출
+
+
+동기
+대기...반응성 떨어짐
+
+js는 기본이 비동기
+
+----
+beautiful dnd
+
+getElementByid
+sueryselector
+
+
+Dom 가져오는 형태모두 알려줘
+
+const div = document.getElement()
+const div = document.querySelector()
+
+-------------
+guessNum
+calcul  로 복습 .........
+
+charAt, substring, slice ...
+
+
+
+
+const [원본이미지ID]   =  dom.getID('원본이미지ID');
+
+const [새이미지ID]   =  dom.getID('새이미지ID');
+
+원본이미지ID.addEvent리스너('click', function(){
+	새이미지ID.src = 
+}
+
+------
+instant ination
+
+----
+pair-wise 조합
+
+rca(root cause analysis
+
+cdn = content delivery network
+
+cloud front
+
+src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"
+https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js
+https://www.chartjs.org/docs/latest/
+
+
+JQuery
+bootstrap
+material Ui
+tailwind
+
+
+https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Status
+100 = 정보 
+200 = 성공
+300 = redirect
+400 = 클라e
+500 = 서버e
+
+
+---파이썬 코드
+import xml.etree.ElementTree as ET
+
+# 알파벳 리스트 (a ~ z)
+tags = [chr(i) for i in range(ord('a'), ord('z') + 1)]
+
+# 가장 바깥쪽(root) 태그부터 생성
+root = ET.Element(tags[0])
+root.text = tags[0]
+
+# 현재 태그 포인터
+current = root
+
+# b~z까지 자식으로 계속 추가
+for tag in tags[1:]:
+    child = ET.Element(tag)
+    child.text = tag
+    current.append(child)
+    current = child  # 포인터 이동
+
+# XML 문자열로 변환
+xml_str = ET.tostring(root, encoding='unicode')
+
+# 출력
+print(xml_str)

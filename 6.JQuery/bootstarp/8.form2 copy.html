@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="username" placeholder="이름을 입력하세요" />
+    <input type="text" id="pw" placeholder="이름을 입력하세요" />
+    <div id="message" style="color: red; font-size: 14px;"></div>
+
+    <script>
+        const input = document.getElementById('username');
+        const message = document.getElementById('message');
+
+        // focus: 안내 메시지 띄우기
+        input.addEventListener('focus', () => {
+            message.textContent = '이름은 2자 이상 입력해주세요.';
+        });
+
+        // blur: 유효성 검사
+        input.addEventListener('blur', () => {
+            if (input.value.trim().length < 2) {
+                message.textContent = '❌ 이름이 너무 짧습니다.';
+            } else {
+                message.textContent = '✅ 올바른 이름입니다!';
+                message.style.color = 'green';
+            }
+        });
+
+    </script>
+</body>
+
+</html>

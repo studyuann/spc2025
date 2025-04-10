@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button id="changeColorBtn()">배경색상변경</button>
+    <button id="randomColorBtn()">배경색상랜덤변경</button>
+    <script>
+        const colors = ["red", "blue", "green", "orange", "cyan", "yellow"]
+        const currentIndex = 0;
+
+        function changeColorBtn() {
+            document.body.style.backgroundColor = colors[currentIndex];
+
+            currentIndex = (currentIndex + 1) % colors.length;
+        }
+
+        button.addEventListener("click", function () {
+            document.body.style.backgroundColor = '#' + Math.floor(Math.random() * 1677215).toString(16).padStart(6, '0');
+        });
+
+
+
+    </script>
+</body>
+</html>

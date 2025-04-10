@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="username" placeholder="Enter your name" />
+    <input type="text" id="pw" placeholder="Enter your name" />
+
+    <script>
+        const input = document.getElementById('username');
+
+        input.addEventListener('focus', () => {
+            console.log('입력 시작!');
+        });
+
+        input.addEventListener('blur', () => {
+            console.log('입력 끝!');
+        });
+
+        form.addEventListener('focusin', () => console.log('하위 요소에 포커스!'));
+        form.addEventListener('focusout', () => console.log('하위 요소에서 포커스 해제!'));    
+    </script>
+</body>
+
+</html>
