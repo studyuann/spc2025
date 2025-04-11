@@ -279,3 +279,79 @@ xml_str = ET.tostring(root, encoding='unicode')
 
 # 출력
 print(xml_str)
+
+---------------------
+
+>
+> const arr = ["red", "green", "blue"];
+undefined
+>
+> const arr = ["red", "green", "blue"]
+Uncaught SyntaxError: Identifier 'arr' has already been declared
+> const arr = ["red", "green", "blue"];
+Uncaught SyntaxError: Identifier 'arr' has already been declared
+>
+>
+> const arr = ["red", "green", "blue"];
+Uncaught SyntaxError: Identifier 'arr' has already been declared
+> console.log(arr.join(", "));
+red, green, blue
+undefined
+> arr
+[ 'red', 'green', 'blue' ]
+> arr.join(",")
+'red,green,blue'
+> arr.join()
+'red,green,blue'
+> const array1 = [1,2,3]
+undefined
+> const array2 = [4,5,6]
+undefined
+> array1
+[ 1, 2, 3 ]
+> array2
+[ 4, 5, 6 ]
+> const array12 = array2.caocat(array1);
+Uncaught TypeError: array2.caocat is not a function
+> const array12 = array2.concat(array1);
+Uncaught SyntaxError: Identifier 'array12' has already been declared
+> array12
+Uncaught ReferenceError: array12 is not defined
+> const array21 = array2.concat(array1);
+undefined
+> array21
+[ 4, 5, 6, 1, 2, 3 ]
+> const array1_2 = [array1,array2]
+undefined
+> array1_2
+[ [ 1, 2, 3 ], [ 4, 5, 6 ] ]
+> const array1__2 = [...array1,...array2]
+undefined
+> array1__2
+[ 1, 2, 3, 4, 5, 6 ]
+> const array1___2 = [..array1,..array2]
+const array1___2 = [..array1,..array2]
+                    ^
+
+Uncaught SyntaxError: Unexpected token '.'
+> const array1___2 = [.array1,.array2]
+const array1___2 = [.array1,.array2]
+                    ^
+
+Uncaught SyntaxError: Unexpected token '.'
+> const array1___2 = [....array1,....array2] 
+const array1___2 = [....array1,....array2]
+                       ^
+
+Uncaught SyntaxError: Unexpected token '.'
+
+
+7===7 true 1  and  0 === 0
+
+5+2 === 7&&4 >5 || 'Hi' === 'Hi
+(7 ===7) and (4>5 )or (0)
+1 and 0 or 1 
+== 1
+
+
+super()
