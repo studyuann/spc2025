@@ -2,30 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    /*    #showhide{
-           display: none;
-        }
-        */
+        /* #showhide {
+            display: none;
+        } */
     </style>
+    <script src="10.showhide.js" defer></script>
 </head>
 <body>
-    <button onclick="showhide()"> 토글 아래 영역</button>
-    <div id = "showhide"> 숨겨질 div 입니다.</div>
-    <script> 
-        function showhide(){
-            var mydiv = document.getElementById('showhide');
-     
-            if (mydiv.style.display === 'none') {
-                    mydiv.style.display = 'block';
-            } else {
-                mydiv.style.display = 'none';
-            }
-        }
-                
-
-    </script>
+    <button onclick="showhide()">토글(show/hide) 아래 영역</button>
+    <div id="showhide">이것은 숨겨질 div 입니다.</div>
 </body>
 </html>

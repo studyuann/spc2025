@@ -1,95 +1,62 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>프로그레스 바 (타이머)</title>
-///
-  <style>
-    #progressBar {
-      width: 100%;
-      background-color: #c4c4c4;
-      margin-top: 10px;
-    }
-    #progress {
-      width: 0%;
-      height: 30px;
-      background-color: #4caf50;
-      transition: width 0.5s ease;
-    }
-  </style>
-
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #progressBar {
+            width: 100%;
+            background-color: #c4c4c4;
+        }
+        #progress {
+            width: 0%;
+            height: 30px;
+            background-color: #4caf50;
+        }
+    </style>
 </head>
 <body>
-  <h1>프로그레스바(타이머)</h1>
-  <input type="number" id="timeInput" placeholder="초 입력" min="1">
-  <button id="startButton">시작</button>
-  <button id="pauseButton">일시정지</button>
-  <button id="resetButton">리셋</button>
+    <h1>프로그레스바(타이머)</h1>
+    <input type="number" id="timeInput" placeholder="초 입력" min=1>
+    <button id="startButton" onclick="startProgress()">시작</button>
+    <button id="resetButton">리셋</button>
 
-  <div id="progressBar">
-    <div id="progress"></div>
-  </div>
+    <div id="progressBar">
+        <div id="progress"></div>
+    </div>
+    <script>
+        // 미션1. 타이머 구현
+        // 1-1. 초를 읽어서, 등분해야함
+        // 1-2. 1초마다 기다리면서, 진척도를 표시
+        const timeInput = document.getElementById('timeInput');
+        const progressBar = document.getElementById('progress');
 
-  <script>
-    const timeInput = document.getElementById('timeInput');
-    const progressBar = document.getElementById('progress');
-    const startButton = document.getElementById('startButton');
-    const pauseButton = document.getElementById('pauseButton');
-    const resetButton = document.getElementById('resetButton');
+        let duration = 0; // 사용자가 입력한 시간 (최종골)
 
-    let duration = 0;          // 전체 시간
-    let timePassed = 0;        // 경과 시간
-    let interval = null;       // 타이머 ID
-    let isPaused = false;      // 일시정지 여부
+        function startProgress() {
+            duration = Number(timeInput.value);
 
-    function updateProgressBar() {
-      const progress = (timePassed / duration) * 100;
-      progressBar.style.width = `${progress}%`;
-    }
+            let timePassed = 0; // 경과된 시간
+            interval = setInterval(function() { // interval은 타이머의 id값임
+                timePassed++; // 매초 증가
 
-    function startProgress() {
-      if (interval !== null) return; // 이미 실행 중이면 무시
-      if (duration === 0) {
-        duration = Number(timeInput.value);
-        if (duration <= 0) return;
-        timePassed = 0;
-      }
+                let progress = (timePassed / duration) * 100; // 진행율
 
-      interval = setInterval(() => {
-        if (!isPaused) {
-          timePassed++;
-          updateProgressBar();
+                // progressBar.style.width = progress + "%"; // 진행율 바(게이지) 업데이트
+                progressBar.style.width = `${progress}%`; // 진행율 바(게이지) 업데이트 (스트링 리터럴 표현법)
 
-          if (timePassed >= duration) {
-            clearInterval(interval);
-            interval = null;
-            console.log("타이머 완료");
-          }
+                // 끝까지 완료했으면? 이 타이머를 삭제
+                if (timePassed >= duration) {
+                    clearInterval(interval); // 해당id로 타이머 삭제
+                    console.log("타이머 삭제중...", interval);
+                }
+            }, 1000);
+
         }
-      }, 1000);
-    }
 
-    function pauseProgress() {
-      isPaused = !isPaused;
-      pauseButton.textContent = isPaused ? "계속" : "일시정지";
-    }
-
-    function resetProgress() {
-      clearInterval(interval);
-      interval = null;
-      timePassed = 0;
-      duration = 0;
-      isPaused = false;
-      progressBar.style.width = "0%";
-      pauseButton.textContent = "일시정지";
-      timeInput.value = "";
-      console.log("타이머 리셋됨");
-    }
-
-    // 버튼 이벤트 연결
-    startButton.addEventListener("click", startProgress);
-    pauseButton.addEventListener("click", pauseProgress);
-    resetButton.addEventListener("click", resetProgress);
-  </script>
+        // 미션2. RESET 버튼 구현하기 (숙제)
+        // 2-1. RESET 누르면 타이머 멈추기
+        // 2-2. RESET 눌렀을때 타이머도 멈추고, 추가적으로 바 게이지 초기화하기
+    </script>
 </body>
 </html>
