@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* 🔹 헤더 배경 이미지 */
+        .header {
+            position: relative;
+            width: 100%;
+            height: 800px;
+            background: url('back_img.jpg') center/cover no-repeat;
+        }
+
+        /* 🔹 배경 어두운 효과 */
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* 어두운 필터 효과 */
+        }
+
+        /* 🔹 상단 네비게이션 바 */
+        .nav {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+
+        /* 🔹 넷플릭스 로고 */
+        .netfl {
+            width: 150px;
+            height: 50px;
+            background: url('Netflix_Logo_PMS.png') center/contain no-repeat;
+        }
+
+        /* 🔹 네비게이션 버튼 */
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* 🔹 중앙 콘텐츠 */
+        .mid {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+            z-index: 10;
+        }
+
+        .mid h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .mid p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* 🔹 이메일 입력 폼 */
+        .email-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .email-input {
+            padding: 15px;
+            width: 300px;
+            font-size: 1rem;
+            background-color: #333;  /* 회색 배경 */
+            color: white;  /* 글씨색 흰색 */
+            border: 1px solid #555;  /* 테두리 색상 */
+            border-radius: 5px;
+        }
+
+        .email-input::placeholder {
+            color: #bbb;  /* 플레이스홀더 색상 */
+        }
+
+        .red-button {
+            padding: 15px 20px;
+            font-size: 1rem;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .red-button:hover {
+            background: darkred;
+        }
+
+        .dropdown {
+            padding: 8px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .dropdown:hover {
+            background: white;
+            color: black;
+        }
+
+        /* 🔹 "5,500원 멤버십" 배너 */
+        .more_plan {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1a1132; /* 배경색 조정 */
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.more_plan img {
+    width: 50px; /* 이미지 크기 조정 */
+    margin-right: 20px;
+}
+
+.more_plan .text-content {
+    flex-grow: 1; /* 텍스트 영역 확장 */
+    text-align: center;
+}
+
+.more_plan h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.more_plan p {
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.more_plan .btn {
+    background: #666;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+        .btn:hover {
+            background: white;
+            color: black;
+        }
+
+        /* 🔹 "지금 뜨는 콘텐츠" */
+        .hot_issue {
+            text-align: left;
+            margin-left: 10%;
+            margin-top: 50px;
+        }
+
+        .hot_issue h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .flex-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding: 20px 0;
+        }
+
+        .box {
+            width: 200px;
+            min-width: 200px;
+            position: relative;
+        }
+
+        .box img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .box .number {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 2rem;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="nav">
+            <div class="netfl"></div>
+            <div class="nav-buttons">
+                <select class="dropdown">
+                    <option value="ko">한국어</option>
+                    <option value="en">English</option>
+                </select>
+                <button class="red-button">로그인</button>
+            </div>
+        </div>
+
+        <div class="mid">
+            <h1>영화, 시리즈 등을 무제한으로</h1>
+            <p>5,500원으로 시작하세요. 멤버십은 언제든지 해지 가능합니다.</p>
+            
+            <div class="email-container">
+                <input type="email" class="email-input" placeholder="이메일 주소">
+                <button class="red-button">시작하기</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="more_plan">
+        <img src="pop.jpg" alt="팝콘">
+        <div class="text-content">
+            <h1>5,500원이면 만날 수 있는 넷플릭스.</h1>
+            <p>가장 경제적인 광고형 멤버십을 이용해 보세요.</p>
+        </div>
+        <button class="btn">자세히 알아보기</button>
+    </div>
+
+    <div class="hot_issue">
+        <h3>지금 뜨는 콘텐츠</h3>
+        <div class="flex-container">
+            <div class="box"><img src="1.webp" alt=""><div class="number">1</div></div>
+            <div class="box"><img src="2.webp" alt=""><div class="number">2</div></div>
+            <div class="box"><img src="3.webp" alt=""><div class="number">3</div></div>
+            <div class="box"><img src="4.webp" alt=""><div class="number">4</div></div>
+            <div class="box"><img src="5.webp" alt=""><div class="number">5</div></div>
+            <div class="box"><img src="6.webp" alt=""><div class="number">6</div></div>
+            <div class="box"><img src="7.webp" alt=""><div class="number">7</div></div>
+        </div>
+    </div>
+
+</body>
+</html>
